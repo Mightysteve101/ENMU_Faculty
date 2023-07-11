@@ -20,7 +20,10 @@
         else
         {
         //Select person indicator, first name, last name, prefix, and email based on department and tag
-        $getTaggedEmployeeInfo = 'SELECT person_id, dir_image, person_first_name, person_last_name, dir_title, email_address, dir_building, dir_room_numb, dir_phone, person_name_prefix, dir_office_hours, dir_vitae, dir_url, dir_education, dir_biography, dir_research_interests, dep_department FROM school_directory.dir LEFT OUTER JOIN school_directory.person ON dir_id = person_id LEFT OUTER JOIN school_directory.prefix ON person_id = prefix_id LEFT OUTER JOIN school_directory.email ON prefix_id = email_id LEFT OUTER JOIN school_directory.dep ON dep_dept_index = dir_dept_index WHERE dir_dept_index = ' . $primaryUnitKey . ' ORDER BY person_last_name, person_first_name';
+        $getTaggedEmployeeInfo = 'SELECT person_id, dir_image, person_first_name, person_last_name, dir_title, email_address, dir_building, dir_room_numb, dir_phone, person_name_prefix, dir_office_hours, 
+	dir_vitae, dir_url, dir_education, dir_biography, dir_research_interests, dep_department FROM school_directory.dir LEFT OUTER JOIN school_directory.person ON dir_id = person_id LEFT OUTER JOIN 
+ 	school_directory.prefix ON person_id = prefix_id LEFT OUTER JOIN school_directory.email ON prefix_id = email_id LEFT OUTER JOIN school_directory.dep ON dep_dept_index = dir_dept_index WHERE 
+  	dir_dept_index = ' . $primaryUnitKey . ' ORDER BY person_last_name, person_first_name';
         $result = $conn->query($getTaggedEmployeeInfo);
         
         // Handle data
